@@ -7,6 +7,9 @@ on:
   pull_request:
     branches:
       - main
+
+permissions:
+  contents: write  
  
 env:
   CSV_URL: "MLproject/train_pca.csv"
@@ -45,7 +48,7 @@ jobs:
       - name: Save mlruns to repo
         run: |
           git config --global user.name "${{ github.actor }}"
-          git config --global user.email "${{ github.actor }} @users.noreply.github.com"
+          git config --global user.email "${{ github.actor }}@users.noreply.github.com"
           git add .
           git commit -m "Save mlruns from CI run" || echo "No changes to commit"
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
