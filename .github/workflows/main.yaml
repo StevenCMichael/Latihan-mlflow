@@ -49,3 +49,4 @@ jobs:
           git add mlruns/
           git commit -m "Save mlruns from CI run"
           git push origin main
+  #rerun 1
